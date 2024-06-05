@@ -23,4 +23,5 @@ Route::get('/obat/edit/{id}', [ObatController::class, 'edit']);
 Route::put('/obat/update/{id}', [ObatController::class, 'update']);
 Route::get('/obat/hapus/{id}', [ObatController::class, 'delete']);
 Route::delete('/obat/destroy/{id}', [ObatController::class, 'destroy']);
+Route::get('/obat/cetak', [ObatController::class, 'cetak']);
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Obat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ObatController extends Controller
 {
@@ -92,5 +93,12 @@ class ObatController extends Controller
         $Obat->delete();
         return redirect('/obat');
     }
+    public function cetak()
+    {
+        $obat = obat::all();
+        $pdf = Pdf::loadview('obat.obat-cetak', compact('obat'));
+        return $pdf->download('laporan-obat.pdf');
+    }
+
 
 }
